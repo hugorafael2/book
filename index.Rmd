@@ -1,0 +1,47 @@
+---
+title: "Conhecimento"
+author: "Hugo Rafael"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+output:
+  bookdown::gitbook:
+    lib_dir: "book_assets"
+config:
+    toc:
+      collapse: subsection
+      scroll_highlight: yes
+      before: null
+      after: null
+    toolbar:
+      position: fixed
+    edit : null
+    download: null
+    search: yes
+    fontsettings:
+      theme: white
+      family: sans
+      size: 2
+    sharing:
+      facebook: yes
+      github: no
+      twitter: yes
+      linkedin: no
+      weibo: no
+      instapaper: no
+      vk: no
+      all: ['facebook', 'twitter', 'linkedin', 'weibo', 'instapaper']
+    info: yes
+link-citations: yes
+---
+# Prefácio {-}
+
+```{r , echo = FALSE }
+knitr::include_graphics(rep('images/capa_conhecimento.jpg'))
+```
+
+Este livro foi escrito em Rmarkdown no formato gitbook. Para saber mais:
+
+- https://rmarkdown.rstudio.com/
+- https://bookdown.org/
+- https://www.gitbook.com/
+

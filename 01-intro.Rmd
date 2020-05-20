@@ -1,0 +1,3 @@
+# Introdução
+
+O objetivo deste livro é organizar um ambiente dinâmico que ilustre a fonte de minhas experiências através de projetos e estudos. **O livro está organizado em cinco partes**: vida acadêmica, vida profissional, programação, design, estatística e projetos.

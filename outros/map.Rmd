@@ -1,0 +1,7 @@
+```{r}
+# https://www.openstreetmap.org/
+library(leaflet)
+m <- leaflet() %>% setView(lng = -43.28266 , lat = -22.62927, zoom = 16)
+
+m %>% addTiles()
+```

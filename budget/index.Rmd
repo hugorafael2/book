@@ -1,3 +1,40 @@
+---
+title: "Historia da Minha Vida"
+author: "Hugo Rafael"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+output:
+  bookdown::gitbook:
+    lib_dir: "book_assets"
+config:
+    toc:
+      collapse: subsection
+      scroll_highlight: yes
+      before: null
+      after: null
+    toolbar:
+      position: fixed
+    edit : null
+    download: null
+    search: yes
+    fontsettings:
+      theme: white
+      family: sans
+      size: 2
+    sharing:
+      facebook: yes
+      github: no
+      twitter: yes
+      linkedin: no
+      weibo: no
+      instapaper: no
+      vk: no
+      all: ['facebook', 'twitter', 'linkedin', 'weibo', 'instapaper']
+    info: yes
+link-citations: yes
+---
+
+
 
 # Análise Bivariada
 
@@ -13,6 +50,7 @@
 #### Lendo os dados:
 
 ```{r read, echo=FALSE, message=FALSE}
+#http://www.htmlwidgets.org/showcase_leaflet.html
 #data read 
 #install.packages("tidyverse")
 library(tidyverse )
