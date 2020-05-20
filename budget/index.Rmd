@@ -12,7 +12,7 @@
 
 #### Lendo os dados:
 
-```{r read, echo=TRUE, message=FALSE}
+```{r read, echo=FALSE, message=FALSE}
 #data read 
 #install.packages("tidyverse")
 library(tidyverse )
@@ -71,6 +71,3 @@ Esta subseção abordará a análise exploratória dos dados da despesa de pesso
 Os dados municipais da despesa com pessoal mostram que, dos 92 municípios observados, a mediana da despesa de pessoal dividida pela receita corrente líquida (DP/RCL) encontra-se em 55,55% no ano de 2015, 55,43% no ano de 2016, 55,14% no ano de 2017, e diminui para 52,45% no ano de 2018, conforme os gráficos de boxplot da Figura 8.
 
 #### Figura 8 – Boxplot do percentual de gasto total com pessoal sobre a RCL
-```{r }
-str(RCL)
-```
