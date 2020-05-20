@@ -1,0 +1,76 @@
+
+# Análise Bivariada
+
+
+- RCL = receita corrente líquida 
+- FPM = fundo de participação dos municípios 
+- leg = despesas com pessoal do poder legislativo 
+- exe = despesas com pessoal do poder executivo 
+- total = despesa total com pessoal 
+- pop = população 
+
+
+#### Lendo os dados:
+
+```{r read, echo=TRUE, message=FALSE}
+#data read 
+#install.packages("tidyverse")
+library(tidyverse )
+library(hrbrthemes)
+
+RCL = read.csv2("data/rcl.csv")
+colnames(RCL)=c('x','municípios',2015:2018)
+
+FPM = read.csv2("data/fpm.csv")
+colnames(FPM)=c('x','municípios',2014:2018)
+
+Royalties = read.csv2("data/royalties.csv")
+colnames(Royalties)=c('x','municípios',2014:2018)
+
+leg = read.csv2("data/legislativo.csv")
+colnames(leg)=c('x','municípios',2015:2018)
+
+exe = read.csv2("data/executivo.csv")
+colnames(exe)=c('x','municípios',2015:2018)
+
+total = read.csv2("data/total.csv")
+
+pop = read.csv2("data/pop.csv")
+```
+
+```{r, echo=FALSE, message=FALSE}
+fp = gather(FPM,c('2014','2015','2016','2017','2018'),key="ano" ,value=fpm) %>% 
+select(municípios, ano, fpm)
+fp = full_join(fp, pop, by = 'municípios') %>% mutate(fpmpercapta = fpm / populacao)
+#head(fp)
+
+dados = total %>% select(municípios, 'X2015', 'X2016', 'X2017', 'X2018')
+colnames(dados) = c('municípios', '2015', '2016', '2017', '2018')
+dados = gather(dados, c('2015', '2016', '2017', '2018'), key='ano',value = 'dp' )
+
+dados = full_join(fp,dados, by= c("municípios", "ano")) %>% filter(ano != '2014')
+
+#head(dados)
+
+dados %>% 
+  #filter(ano == '2018') %>% 
+  ggplot(aes(x = fpmpercapta, y = dp, color= ano)) +
+  geom_point() +
+  labs(title = "Relação entre FPM per Capita e Despesa de Pessoal / RCL - 2018",
+       x = "Fundo de Participação Municipal (FPM) per Capita",
+       y = "Despesa de Pessoal / RCL")
+```
+
+
+# Despesas
+
+Esta subseção abordará a análise exploratória dos dados da despesa de pessoal, que foram organizadas em três partes: Gastos Total com Pessoal; Gastos com Pessoal do Poder Executivo; e Gastos com Pessoal do Poder Legislativo.
+
+## Gastos Total com Pessoal
+
+Os dados municipais da despesa com pessoal mostram que, dos 92 municípios observados, a mediana da despesa de pessoal dividida pela receita corrente líquida (DP/RCL) encontra-se em 55,55% no ano de 2015, 55,43% no ano de 2016, 55,14% no ano de 2017, e diminui para 52,45% no ano de 2018, conforme os gráficos de boxplot da Figura 8.
+
+#### Figura 8 – Boxplot do percentual de gasto total com pessoal sobre a RCL
+```{r }
+str(RCL)
+```
